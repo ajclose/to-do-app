@@ -25,11 +25,13 @@ body {
 .task-input {
   width: 75%;
   margin: 10px;
+  font-size: 18px;
 }
 
 .complete-button {
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .incompletes {
@@ -46,6 +48,7 @@ body {
   justify-content: flex-start;
   width: 100%;
   margin: 10px 0;
+  font-size: 20px;
 }
 
 .item {
@@ -60,4 +63,17 @@ body {
 
 .completed-item {
   margin: 10px 0;
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+.add-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
 }
