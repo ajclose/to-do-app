@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 30%;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.task {
+  width: 100%;
+}
+
+.task-input {
+  width: 75%;
+  margin: 10px;
+}
+
+.complete-button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.incompletes {
+  width: 100%;
+  padding: 5px;
+}
+
+.incomplete {
+  width: 100%;
+}
+
+.incomplete-task {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.item {
+  padding: 10px;
+}
+
+.complete {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+}
+
+.completed-item {
+  margin: 10px 0;
+}
