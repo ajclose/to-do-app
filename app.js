@@ -16,7 +16,6 @@ app.listen(3000, function() {
 
 app.get('/', function(request, response){
   response.render("index", {
-    pageTitle: "To Do List",
     todos: toDo,
     complete: complete
   })
