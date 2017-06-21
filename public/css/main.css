@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  padding: 5px;
 }
 
 .task {
@@ -37,6 +38,7 @@ body {
 .incompletes {
   width: 100%;
   padding: 5px;
+  border-bottom: 2px solid black;
 }
 
 .incomplete {
