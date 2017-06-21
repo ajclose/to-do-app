@@ -2,8 +2,9 @@ const express = require('express')
 const app = express()
 const mustache = require('mustache-express')
 const bodyParser = require('body-parser')
-const toDo = ['clean your rum']
+const toDo = ['clean your room']
 const complete = ['wash the dog']
+
 
 app.set('view engine', 'mustache')
 app.engine('mustache', mustache())
