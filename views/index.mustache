@@ -19,22 +19,30 @@
     <div class="incompletes">
       <form class="incomplete" action="/" method="post">
         {{#todos}}
+        {{^completed}}
           <div class="incomplete-task">
-            <button class="complete-button" type="submit" name="complete" value="{{.}}">Mark Complete</button>
-            <p class="item">{{.}}
+            <button class="complete-button" type="submit" name="complete" value="{{id}}">Mark Complete</button>
+            <p class="item">{{task}}
               <p>
           </div>
-        {{/todos}}
+          {{/completed}}
+              {{/todos}}
       </form>
     </div>
 
+
     <div class="complete">
       <h3>Completed</h3>
-      {{#complete}}
+      <form class="delete" action="/delete" method="post">
+        <input type="submit" name="delete" value="Remove Completed Tasks"></button>
+      </form>
+      {{#todos}}
+      {{#completed}}
         <div class="completed-item">
-          {{.}}
+          {{task}}
         </div>
-      {{/complete}}
+      {{/completed}}
+    {{/todos}}
     </div>
   </div>
 </body>
