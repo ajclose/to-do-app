@@ -2,8 +2,6 @@ const express = require('express')
 const app = express()
 const mustache = require('mustache-express')
 const bodyParser = require('body-parser')
-// const toDo = ['clean your room']
-// const complete = ['wash the dog']
 const models = require('./models')
 
 
@@ -20,7 +18,6 @@ app.get('/', function(request, response){
   models.Todo.findAll({order: ['createdAt']}).then(function(task) {
     response.render("index", {
       todos: task
-      // complete: complete
     })
   })
 
@@ -31,6 +28,9 @@ app.post('/', function(request, response) {
   console.log('task', task);
   const completed = request.body.complete
   console.log('completed', completed);
+  const deleted = request.body.delete
+  console.log('deleted', deleted);
+  const edit = request.body.edit
   if (task) {
     const todo = models.Todo.build({
       task: task,
@@ -49,8 +49,19 @@ app.post('/', function(request, response) {
     }).then(function(todo) {
     })
 
-    }
+  } else if (deleted) {
+    models.Todo.destroy({
+      where: {
+        id: deleted
+      }
 
+    }).then(function(task) {
+
+    })
+  }
+  // } else if (edit) {
+  //   response.redirect('/edit')
+  // }
   response.redirect('/')
 })
 
@@ -64,4 +75,36 @@ app.post('/delete', function(request, response) {
     console.log(tasks)
   })
   response.redirect('/')
+})
+
+// app.get('/edit', function(request, response) {
+//   const edit = request.body.edit
+//   console.log(edit);
+//   response.render('edit')
+// })
+
+app.get('/edit/:id', function(request, response) {
+  const id = request.params.id
+  models.Todo.findById(id).then(function(task) {
+    response.render('edit', {
+      task: task.task,
+      id: id
+    })
+  })
+
+})
+
+app.post('/edit', function(request, response) {
+  const taskUpdate = request.body.edit
+  const id = request.body.submit
+  console.log('id', id);
+  models.Todo.update({
+    task: taskUpdate
+  }, {
+    where: {
+      id: id
+    }
+  }).then(function(tasks) {
+    response.redirect('/')
+  })
 })
